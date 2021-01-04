@@ -30,20 +30,22 @@ public class User implements Serializable {
     private Long id;
 
     @NotBlank
+    @Column(nullable = false)
     private String name;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     @Email
     @NotBlank
     private String email;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     @CPF
     @NotBlank
     private String cpf;
 
     @Past
     @NotNull
+    @Column(nullable = false)
     private LocalDate birthday;
 
 }
