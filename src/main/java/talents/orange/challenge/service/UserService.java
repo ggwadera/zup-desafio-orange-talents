@@ -19,10 +19,10 @@ public class UserService {
 
     public User create(User user) throws UniqueViolationException {
         if (userRepository.existsByCpf(user.getCpf())) {
-            throw new UniqueViolationException("Provided CPF already exists.");
+            throw new UniqueViolationException("O CPF %s já existe no banco de dados.".formatted(user.getCpf()));
         }
         if (userRepository.existsByEmail(user.getEmail())) {
-            throw new UniqueViolationException("Provided email already exists.");
+            throw new UniqueViolationException("O email %s já existe no banco de dados.".formatted(user.getEmail()));
         }
         return save(user);
     }
