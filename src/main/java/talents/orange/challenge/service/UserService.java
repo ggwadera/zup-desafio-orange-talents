@@ -13,10 +13,6 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public User save(User user) {
-        return userRepository.save(user);
-    }
-
     public User create(User user) throws UniqueViolationException {
         if (userRepository.existsByCpf(user.getCpf())) {
             throw new UniqueViolationException("O CPF %s já existe no banco de dados.".formatted(user.getCpf()));
@@ -24,7 +20,7 @@ public class UserService {
         if (userRepository.existsByEmail(user.getEmail())) {
             throw new UniqueViolationException("O email %s já existe no banco de dados.".formatted(user.getEmail()));
         }
-        return save(user);
+        return userRepository.save(user);
     }
 
     public User findById(Long id) {

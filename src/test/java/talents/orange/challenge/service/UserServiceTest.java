@@ -42,9 +42,9 @@ class UserServiceTest {
 
     @Test
     @DisplayName("Should create entity when CPF and email are valid")
-    void createTest() {
+    void createTest() throws UniqueViolationException {
         given(repository.save(any(User.class))).willReturn(user);
-        assertThat(service.save(user)).isEqualTo(user);
+        assertThat(service.create(user)).isEqualTo(user);
         verify(repository, times(1)).save(user);
     }
 
@@ -54,7 +54,7 @@ class UserServiceTest {
         given(repository.existsByCpf(user.getCpf())).willReturn(true);
         assertThat(catchThrowable(() -> service.create(user)))
             .isInstanceOf(UniqueViolationException.class)
-            .hasMessageContaining("Provided CPF already exists.");
+            .hasMessageContaining("O CPF %s já existe no banco de dados.".formatted(user.getCpf()));
         verify(repository, never()).save(any());
     }
 
@@ -64,7 +64,7 @@ class UserServiceTest {
         given(repository.existsByEmail(user.getEmail())).willReturn(true);
         assertThat(catchThrowable(() -> service.create(user)))
             .isInstanceOf(UniqueViolationException.class)
-            .hasMessageContaining("Provided email already exists.");
+            .hasMessageContaining("O email %s já existe no banco de dados.".formatted(user.getEmail()));
         verify(repository, never()).save(any());
     }
 }
