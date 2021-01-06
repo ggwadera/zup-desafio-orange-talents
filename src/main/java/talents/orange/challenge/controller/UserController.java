@@ -1,6 +1,6 @@
 package talents.orange.challenge.controller;
 
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,11 +13,15 @@ import javax.validation.Valid;
 import java.net.URI;
 
 @RestController
-@AllArgsConstructor
 @RequestMapping(value = "/api/user", produces = MediaType.APPLICATION_JSON_VALUE)
 public class UserController {
 
     private final UserService userService;
+
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @PostMapping(value = "/signup", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> create(@Valid @RequestBody User user) throws UniqueViolationException {

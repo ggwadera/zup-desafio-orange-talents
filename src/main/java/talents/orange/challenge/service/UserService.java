@@ -1,17 +1,21 @@
 package talents.orange.challenge.service;
 
-import lombok.AllArgsConstructor;
 import org.hibernate.ObjectNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import talents.orange.challenge.model.User;
 import talents.orange.challenge.repository.UserRepository;
 import talents.orange.challenge.service.exception.UniqueViolationException;
 
 @Service
-@AllArgsConstructor
 public class UserService {
 
     private final UserRepository userRepository;
+
+    @Autowired
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public User create(User user) throws UniqueViolationException {
         if (userRepository.existsByCpf(user.getCpf())) {
