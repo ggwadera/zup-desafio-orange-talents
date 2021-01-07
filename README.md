@@ -1,5 +1,43 @@
 # Desafio Zup Orange Talents
 
+Para ler o artigo escrito para este desafio, [clique aqui](Desafio.md).
+
+Para rodar a aplicação localmente em sua máquina, é preciso ter a JDK 15 instalada, e executar os comandos abaixo:
+
+```shell
+git clone https://github.com/ggwadera/zup-desafio-orange-talents.git
+cd zup-desafio-orange-talents
+./gradlew build
+./gradlew bootRun
+```
+
+A aplicação então estará disponível no endereço `http://localhost:8080`.
+
+Também é disponibilizado uma imagem Docker para rodar a aplicação. Para isso utilize o comando abaixo.
+
+```shell
+docker run --rm -it -p 8080:8080 ggwadera/zup
+```
+
+A API também está disponível online na plataforma Heroku, onde você pode testar sem precisar rodar nada localmente. Para
+isso, utilize o link https://zup-desafio.herokuapp.com/ (para criar uma conta, por exemplo,
+utilize https://zup-desafio.herokuapp.com/api/user/signup).
+
+## Endpoints:
+
+* **POST** `/api/user/signup` — cria uma conta de usuário, requer body com os valores abaixo:
+
+```json
+{
+  "name": "string",
+  "cpf": "string",
+  "email": "string",
+  "birthday": "yyyy-mm-dd"
+}
+```
+
+* **GET** `/api/user/{id}` — busca uma conta no banco de dados a partir do ID requisitado.
+
 ## Contexto:
 
 Você está fazendo uma API REST que precisa suportar o processo de abertura de nova conta no banco. O primeiro passo
