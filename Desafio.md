@@ -1,16 +1,24 @@
 # Desafio Zup Orange Talents
 
+Autor: [Guilherme Gwadera](https://linkedin.com/in/guilherme-gwadera)
+
+Artigo escrito para o processo seletivo Orange Talents. Caso deseje acessar o repositório com o código-fonte ou rodar a aplicação, por gentileza vá para a [última seção](#9-concluindo) para mais detalhes.
+
 ## Sumário
 
-1. [Introdução](#1-introduo)
-2. [Iniciado o projeto](#2-iniciando-o-projeto)
-3. [Definindo as entidades](#3-definindo-as-entidades)
-4. [Conversando com o banco de dados](#4-conversando-com-o-banco-de-dados)
-5. [A lógica do negócio](#5-a-lgica-do-negcio)
-6. [Recebendo as requisições](#6-recebendo-as-requisies)
-7. [Tratando os erros](#7-tratando-os-erros)
-8. [Rodando a aplicação](#8-rodando-a-aplicao)
-9. [Concluindo](#9-concluindo)
+- [Desafio Zup Orange Talents](#desafio-zup-orange-talents)
+  - [Sumário](#sumário)
+  - [1. Introdução](#1-introdução)
+  - [2. Iniciando o projeto](#2-iniciando-o-projeto)
+  - [3. Definindo as entidades](#3-definindo-as-entidades)
+  - [4. Conversando com o banco de dados](#4-conversando-com-o-banco-de-dados)
+  - [5. A lógica do negócio](#5-a-lógica-do-negócio)
+  - [6. Recebendo as requisições](#6-recebendo-as-requisições)
+    - [Criando uma conta](#criando-uma-conta)
+    - [Acessando uma conta](#acessando-uma-conta)
+  - [7. Tratando os erros](#7-tratando-os-erros)
+  - [8. Rodando a aplicação](#8-rodando-a-aplicação)
+  - [9. Concluindo](#9-concluindo)
 
 ## 1. Introdução
 
